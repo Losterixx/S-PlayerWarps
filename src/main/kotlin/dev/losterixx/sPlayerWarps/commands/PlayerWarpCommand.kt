@@ -75,7 +75,7 @@ object PlayerWarpCommand : Listener {
                             return@executes 1
                         }
 
-                        PWManager.savePlayerWarp(
+                        PWManager.addPlayerWarp(
                             PlayerWarp(identifier, sender.uniqueId, null, sender.location)
                         )
 

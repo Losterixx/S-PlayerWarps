@@ -17,6 +17,14 @@ updateChecker:
   # This requires the permission 's-playerwarps.admin.notifyUpdate' or to be an OP
   playerMessage: true
 
+# Settings for data saving
+saving:
+  # Whether to save player warps asynchronously
+  async: true
+  # The delay between autosaves in seconds
+  # [ Default = 1200 (20 minutes) ]
+  delay: 1200
+
 # Settings for all sounds
 sounds:
   teleportSound:
