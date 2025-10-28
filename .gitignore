@@ -1,0 +1,50 @@
+# IntelliJ IDEA
+.idea
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+gen/
+logs/
+
+# Gradle
+.gradle
+.gradle/
+<<<<<<< HEAD
+gradle/gradle-wrapper.jar
+=======
+gradle
+gradle/
+>>>>>>> 8a61fc93b223f6c024e1bddcb5d685a0f9e1814a
+build
+build/
+gradlew
+gradlew.bat
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Linux
+*~
+
+# Others
+*.log
+*.swp
+*.swo
+
+# Custom
+libs
+libs/
+run
+run/

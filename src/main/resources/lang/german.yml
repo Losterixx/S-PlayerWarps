@@ -1,0 +1,38 @@
+# This plugin utilizes MiniMessage for messages.
+# For more information, visit https://docs.adventure.kyori.net/minimessage.html
+
+file-version: 1
+
+# Generelle Nachrichten
+general:
+  noPlayer: "<gray>Dies können <red>nur Spieler<gray> ausführen!"
+  noPerms: "<gray>Du hast <red>keine Berechtigung<gray> für diesen Befehl!"
+  playerNotFound: "<gray>Der angegebene Spieler <red>konnte nicht gefunden<gray> werden!"
+
+# Other messages
+other:
+  updateChecker: "<gray>Es ist ein <yellow>Update verfügbar<gray>! Die momentane Version ist die <red>v%current-version%<gray>, die neuste Version ist die <green>%latest-version%<gray>!"
+
+# Befehlsnachrichten
+commands:
+  # Nachrichten für den /s-playerwarps Befehl (Hauptbefehl des Plugins)
+  s-playerwarps:
+    usage: "<gray>Bitte nutze <red>/s-playerwarps <about/reload><gray>!"
+    about: "<gray>S-PlayerWarps v%version% <dark_gray>- <gray>%authors%"
+    reload:
+      reloading: "<gray>S-PlayerWarps <yellow>wird neugeladen<gray>..."
+      success: "<gray>S-PlayerWarps wurde <green>erfolgreich neugeladen<gray>! <dark_gray>(%time%ms)"
+      error: "<red>Fehler beim Neuladen <gray>von S-PlayerWarps! Überprüfe die Konsole für Details."
+  playerwarp:
+    usage: "<gray>Bitte nutze <red>/playerwarp <create/teleport> <Identifier><gray>!"
+    create:
+      success: "<gray>Der Spieler-Warp <white>%warp% <gray>wurde <green>erfolgreich erstellt<gray>!"
+      alreadyExists: "<gray>Ein Spieler-Warp mit dem Namen <white>%warp% <red>existiert bereits<gray>!"
+      identifierRegex: "<gray>Der Warp-Name <white>%warp% <gray>enthält <red>ungültige Zeichen<gray>! Bitte nutze nur Kleinbuchstaben und Unterstriche."
+      identifierLength: "<gray>Der Warp-Name <white>%warp% <gray>ist <red>zu lang oder zu kurz<gray>! Bitte nutze einen Namen zwischen <red>4 und 16 <gray>Zeichen."
+      maxWarpsReached: "<gray>Du hast die <red>maximale Anzahl an Spieler-Warps <gray>erreicht, die du erstellen kannst!"
+    teleport:
+      teleporting: "<gray>Teleportation wird gestartet ..."
+      success: "<gray>Du wurdest zum Spieler-Warp <white>%warp% <gray>teleportiert!"
+      notFound: "<gray>Der Spieler-Warp <white>%warp% <gray>konnte <red>nicht gefunden<gray> werden!"
+      canceled: "<gray>Die Teleportation wurde aufgrund von Bewegung <red>abgebrochen<gray>!"

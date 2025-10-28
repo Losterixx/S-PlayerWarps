@@ -1,0 +1,25 @@
+name: S-PlayerWarps
+version: '0.1-dev'
+main: dev.losterixx.sPlayerWarps.Main
+api-version: '1.21'
+authors: [ Losterixx ]
+description: A simple player warps plugin.
+permissions:
+  s-playerwarps.admin.about:
+    description: Allows access to the about command.
+    default: op
+  s-playerwarps.admin.reload:
+    description: Allows access to the reload command.
+    default: op
+  s-playerwarps.admin.notifyUpdate:
+    description: Allows receiving update notifications.
+    default: op
+  s-playerwarps.command.playerwarp.use:
+    description: Allows access to the playerwarp command.
+    default: true
+  s-playerwarps.command.playerwarp.create:
+    description: Allows creating player warps.
+    default: true
+  s-playerwarps.command.playerwarp.teleport:
+    description: Allows teleporting to player warps.
+    default: true

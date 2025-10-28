@@ -1,0 +1,38 @@
+# This plugin utilizes MiniMessage for messages.
+# For more information, visit https://docs.adventure.kyori.net/minimessage.html
+
+file-version: 1
+
+# General messages
+general:
+  noPlayer: "<gray>You <red>must be a player<gray> to execute this command!"
+  noPerms: "<gray>You <red>do not have permission<gray> to execute this command!"
+  playerNotFound: "<gray>The given player <red>could not be found<gray>!"
+
+# Other messages
+other:
+  updateChecker: "<gray>An <yellow>update <gray>is available! You are using version <red>v%current-version%<gray>, the latest version is <green>%latest-version%<gray>!"
+
+# Command messages
+commands:
+  # Messages for the /s-playerwarps command (main plugin command)
+  s-playerwarps:
+    usage: "<gray>Please use <red>/s-playerwarps <about/reload><gray>!"
+    about: "<gray>S-PlayerWarps v%version% <dark_gray>- <gray>%authors%"
+    reload:
+      reloading: "<yellow>Reloading <gray>S-PlayerWarps..."
+      success: "<green>Successfully reloaded <gray>S-PlayerWarps! <dark_gray>(%time%ms)"
+      error: "<gray>An <red>error occurred <gray>while reloading S-PlayerWarps! Check the console for details."
+  playerwarp:
+    usage: "<gray>Please use <red>/playerwarp <create/teleport> <identifier><gray>!"
+    create:
+      success: "<gray>The player warp <white>%warp% <gray>has <green>successfully been created<gray>!"
+      alreadyExists: "<gray>A player warp with the name <white>%warp% <red>already exists<gray>!"
+      identifierRegex: "<gray>The warp name <white>%warp% <gray>contains <red>invalid characters<gray>! Please use only lowercase letters and underscores."
+      identifierLength: "<gray>The warp name <white>%warp% <gray>is <red>too long or too short<gray>! Please use a name between <red>4 and 16 <gray>characters long."
+      maxWarpsReached: "<gray>You have reached the <red>maximum amount of player warps <gray>you can create!"
+    teleport:
+      teleporting: "<gray>Teleportation starting ..."
+      success: "<gray>You have been teleported to player warp <white>%warp%<gray>!"
+      notFound: "<gray>The player warp <white>%warp% <gray>could <red>not be found<gray>!"
+      canceled: "<gray>Teleportation <red>canceled<gray> due to movement!"
