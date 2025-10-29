@@ -10,7 +10,7 @@ S-PlayerWarps is a simple Paper plugin that lets players create personal warps a
 
 ## Requirements
 - Java 21 or higher
-- Paper server (1.21+)
+- Paper server (1.21.8+)
 
 ## Download
 - **GitHub Releases:** [Link](https://github.com/Losterixx/S-PlayerWarps/releases)

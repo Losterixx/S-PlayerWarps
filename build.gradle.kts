@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.losterxx"
-version = "0.2-dev"
+version = "0.3-dev"
 
 repositories {
     mavenCentral()
@@ -19,13 +19,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("dev.dejvokep:boosted-yaml:1.3.6")
     implementation("dev.triumphteam:triumph-gui-paper:3.1.13-SNAPSHOT")
 
-    implementation("com.github.Losterixx:S-API:v0.1.2")
+    implementation("com.github.Losterixx:S-API:v0.1.4")
 }
 
 tasks {

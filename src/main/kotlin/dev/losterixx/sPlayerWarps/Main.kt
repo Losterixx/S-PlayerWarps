@@ -30,6 +30,7 @@ class Main : JavaPlugin() {
 
         // -> Configs
         ConfigExtras.loadConfigFiles("data")
+        ConfigManager.createConfig("mainMenu", "menus/mainMenu.yml", "menus")
         ConfigExtras.loadLangFiles()
         logger.info("Loaded ${ConfigManager.getAllConfigs().size} configs!")
 

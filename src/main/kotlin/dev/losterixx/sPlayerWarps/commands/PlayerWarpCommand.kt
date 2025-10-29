@@ -2,11 +2,12 @@ package dev.losterixx.sPlayerWarps.commands
 
 import com.mojang.brigadier.arguments.StringArgumentType
 import com.mojang.brigadier.builder.LiteralArgumentBuilder
-import com.mojang.brigadier.suggestion.Suggestions
 import dev.losterixx.sapi.utils.config.ConfigManager
 import dev.losterixx.sPlayerWarps.Main
+import dev.losterixx.sPlayerWarps.other.GuiManager
 import dev.losterixx.sPlayerWarps.other.PWManager
 import dev.losterixx.sPlayerWarps.other.PlayerWarp
+import dev.triumphteam.gui.guis.Gui
 import io.papermc.paper.command.brigadier.CommandSourceStack
 import io.papermc.paper.command.brigadier.Commands
 import org.bukkit.entity.Player
@@ -14,6 +15,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.Location
+import org.bukkit.Material
 import org.bukkit.scheduler.BukkitTask
 import java.util.UUID
 import java.util.concurrent.CompletableFuture
@@ -36,10 +38,24 @@ object PlayerWarpCommand : Listener {
             .executes { ctx ->
                 val sender = ctx.source.sender as Player
 
-                sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.usage")))
+                if (sender.hasPermission("s-playerwarps.command.playerwarp.menu")) {
+                    sender.performCommand("playerwarp menu")
+                } else {
+                    sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.usage")))
+                }
 
                 return@executes 1
             }
+            .then(Commands.literal("help")
+                .requires { ctx -> ctx.sender.hasPermission("s-playerwarps.command.playerwarp.help") }
+                .executes { ctx ->
+                    val sender = ctx.source.sender as Player
+
+                    sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.usage")))
+
+                    return@executes 1
+                }
+            )
             .then(Commands.literal("create")
                 .requires { ctx -> ctx.sender.hasPermission("s-playerwarps.command.playerwarp.create") }
                 .then(Commands.argument("identifier", StringArgumentType.string())
@@ -53,7 +69,7 @@ object PlayerWarpCommand : Listener {
 
                         val identifier = StringArgumentType.getString(ctx, "identifier")
 
-                        val identifierRegex = Regex(config.getString("playerwarps.identifier.regex", "^[a-z_]+$"))
+                        val identifierRegex = Regex(config.getString("playerwarps.identifier.regex", "^[A-Za-z0-9_]+$"))
                         val minLen = config.getInt("playerwarps.identifier.minLength", 4)
                         val maxLen = config.getInt("playerwarps.identifier.maxLength", 16)
 
@@ -76,7 +92,7 @@ object PlayerWarpCommand : Listener {
                         }
 
                         PWManager.addPlayerWarp(
-                            PlayerWarp(identifier, sender.uniqueId, null, sender.location)
+                            PlayerWarp(identifier, sender.uniqueId, sender.location, material = Material.getMaterial(config.getString("playerwarps.defaultWarpIcon")) ?: Material.COMPASS)
                         )
 
                         sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.create.success")
@@ -135,7 +151,7 @@ object PlayerWarpCommand : Listener {
                         if (!delayEnabled || delaySeconds <= 0) {
                             sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.teleport.teleporting")
                                 .replace("%warp%", identifier)))
-                            sender.teleport(playerWarp.location)
+                            playerWarp.teleport(sender)
                             sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.teleport.success")
                                 .replace("%warp%", identifier)))
 
@@ -162,7 +178,7 @@ object PlayerWarpCommand : Listener {
 
                                 remaining -= 1
                                 if (remaining <= 0) {
-                                    sender.teleport(playerWarp.location)
+                                    playerWarp.teleport(sender)
                                     sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.teleport.success")
                                         .replace("%warp%", identifier)))
 
@@ -200,6 +216,16 @@ object PlayerWarpCommand : Listener {
                         return@executes 1
                     }
                 )
+            )
+            .then(Commands.literal("menu")
+                .requires { ctx -> ctx.sender.hasPermission("s-playerwarps.command.playerwarp.menu") }
+                .executes { ctx ->
+                    val sender = ctx.source.sender as Player
+
+                    GuiManager.openMainMenu(sender)
+
+                    return@executes 1
+                }
             )
     }
 

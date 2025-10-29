@@ -59,11 +59,13 @@ sounds:
 playerwarps:
   # The maximum amount of player warps a player can create
   maxWarpsPerPlayer: 5
+  # The default icon for player warps (Material name)
+  defaultWarpIcon: 'COMPASS'
   # Settings for warp identifiers
   # I would recommend to NOT change these settings unless you know what you're doing; This does not effect the display name
   identifier:
     # The regex pattern that warp identifiers must match
-    regex: '^[a-z_]+$'
+    regex: '^[A-Za-z0-9_]+$'
     # The minimum length for warp identifiers
     minLength: 4
     # The maximum length for warp identifiers

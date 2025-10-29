@@ -1,5 +1,5 @@
 name: S-PlayerWarps
-version: '0.2-dev'
+version: '0.3-dev'
 main: dev.losterixx.sPlayerWarps.Main
 api-version: '1.21'
 authors: [ Losterixx ]
@@ -17,9 +17,15 @@ permissions:
   s-playerwarps.command.playerwarp.use:
     description: Allows access to the playerwarp command.
     default: true
+  s-playerwarps.command.playerwarp.help:
+    description: Allows access to the help command.
+    default: true
   s-playerwarps.command.playerwarp.create:
     description: Allows creating player warps.
     default: true
   s-playerwarps.command.playerwarp.teleport:
     description: Allows teleporting to player warps.
+    default: true
+  s-playerwarps.command.playerwarp.menu:
+    description: Allows opening the player warps menu.
     default: true

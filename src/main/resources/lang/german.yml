@@ -28,7 +28,7 @@ commands:
     create:
       success: "<gray>Der Spieler-Warp <white>%warp% <gray>wurde <green>erfolgreich erstellt<gray>!"
       alreadyExists: "<gray>Ein Spieler-Warp mit dem Namen <white>%warp% <red>existiert bereits<gray>!"
-      identifierRegex: "<gray>Der Warp-Name <white>%warp% <gray>enthält <red>ungültige Zeichen<gray>! Bitte nutze nur Kleinbuchstaben und Unterstriche."
+      identifierRegex: "<gray>Der Warp-Name <white>%warp% <gray>enthält <red>ungültige Zeichen<gray>! Bitte nutze nur Buchstaben, Zahlen und Unterstriche."
       identifierLength: "<gray>Der Warp-Name <white>%warp% <gray>ist <red>zu lang oder zu kurz<gray>! Bitte nutze einen Namen zwischen <red>4 und 16 <gray>Zeichen."
       maxWarpsReached: "<gray>Du hast die <red>maximale Anzahl an Spieler-Warps <gray>erreicht, die du erstellen kannst!"
     teleport:

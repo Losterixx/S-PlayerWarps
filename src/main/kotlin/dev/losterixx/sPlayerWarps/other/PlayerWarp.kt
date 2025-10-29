@@ -1,11 +1,24 @@
 package dev.losterixx.sPlayerWarps.other
 
 import org.bukkit.Location
+import org.bukkit.Material
+import org.bukkit.entity.Player
 import java.util.UUID
 
 data class PlayerWarp(
     val identifier: String,
     val owner: UUID,
-    val displayName: String?,
-    val location: Location
-)
+    var location: Location,
+    var displayName: String? = null,
+    var material: Material = Material.ENDER_PEARL,
+    var totalUses: Int = 0,
+    var uniqueUses: MutableList<UUID> = mutableListOf()
+) {
+    fun teleport(player: Player) {
+        player.teleport(location)
+        totalUses += 1
+        if (!uniqueUses.contains(player.uniqueId)) {
+            uniqueUses.add(player.uniqueId)
+        }
+    }
+}
