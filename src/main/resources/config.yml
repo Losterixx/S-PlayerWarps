@@ -61,6 +61,8 @@ playerwarps:
   maxWarpsPerPlayer: 5
   # The default icon for player warps (Material name)
   defaultWarpIcon: 'COMPASS'
+  # The maximum length for warp display names
+  displayNameMaxLength: 40
   # Settings for warp identifiers
   # I would recommend to NOT change these settings unless you know what you're doing; This does not effect the display name
   identifier:

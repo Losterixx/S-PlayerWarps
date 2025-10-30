@@ -1,13 +1,13 @@
 package dev.losterixx.sPlayerWarps
 
 import dev.losterixx.sPlayerWarps.commands.PlayerWarpCommand
+import dev.losterixx.sPlayerWarps.other.Cache
 import dev.losterixx.sapi.SAPI
 import dev.losterixx.sapi.premade.commands.DefaultMainCommand
 import dev.losterixx.sapi.utils.config.ConfigExtras
 import dev.losterixx.sapi.utils.config.ConfigManager
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
-import org.bukkit.scheduler.BukkitTask
 import dev.losterixx.sPlayerWarps.other.PWManager
 
 class Main : JavaPlugin() {
@@ -29,14 +29,17 @@ class Main : JavaPlugin() {
         SAPI.init(instance)
 
         // -> Configs
-        ConfigExtras.loadConfigFiles("data")
+        ConfigExtras.loadConfigFiles("data", "cache")
         ConfigManager.createConfig("mainMenu", "menus/mainMenu.yml", "menus")
+        ConfigManager.createConfig("ownWarpsMenu", "menus/ownWarpsMenu.yml", "menus")
+        ConfigManager.createConfig("editWarpMenu", "menus/editWarpMenu.yml", "menus")
         ConfigExtras.loadLangFiles()
         logger.info("Loaded ${ConfigManager.getAllConfigs().size} configs!")
 
         // -> Load data
         PWManager.loadAllFromDisk()
         logger.info("Loaded ${PWManager.getAllWarps().size} player warps.")
+        logger.info("Loaded ${Cache.loadCache()} player names to cache.")
 
         // -> Tasks
         PWManager.startSavingTask()
@@ -47,6 +50,7 @@ class Main : JavaPlugin() {
             commands.registrar().register(PlayerWarpCommand.get().build(), listOf("pw"))
         }
         server.pluginManager.registerEvents(PlayerWarpCommand, instance)
+        server.pluginManager.registerEvents(Cache, instance)
 
         logger.info("Plugin has been initialized successfully!")
     }
@@ -60,6 +64,7 @@ class Main : JavaPlugin() {
         // -> Save data
         try {
             PWManager.saveAllToDisk()
+            Cache.saveCache()
             logger.info("Data has been saved.")
         } catch (e: Exception) {
             logger.warning("Error while saving player warps: ${e.message}")

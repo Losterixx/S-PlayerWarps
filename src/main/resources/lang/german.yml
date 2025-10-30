@@ -27,12 +27,45 @@ commands:
     usage: "<gray>Bitte nutze <red>/playerwarp <create/teleport> <Identifier><gray>!"
     create:
       success: "<gray>Der Spieler-Warp <white>%warp% <gray>wurde <green>erfolgreich erstellt<gray>!"
-      alreadyExists: "<gray>Ein Spieler-Warp mit dem Namen <white>%warp% <red>existiert bereits<gray>!"
-      identifierRegex: "<gray>Der Warp-Name <white>%warp% <gray>enthält <red>ungültige Zeichen<gray>! Bitte nutze nur Buchstaben, Zahlen und Unterstriche."
-      identifierLength: "<gray>Der Warp-Name <white>%warp% <gray>ist <red>zu lang oder zu kurz<gray>! Bitte nutze einen Namen zwischen <red>4 und 16 <gray>Zeichen."
+      alreadyExists: "<gray>Ein Spieler-Warp mit der ID <white>%warp% <red>existiert bereits<gray>!"
+      identifierRegex: "<gray>Die Warp-ID <white>%warp% <gray>enthält <red>ungültige Zeichen<gray>! Bitte nutze nur Buchstaben, Zahlen und Unterstriche."
+      identifierLength: "<gray>Die Warp-ID <white>%warp% <gray>ist <red>zu lang oder zu kurz<gray>! Bitte nutze eine ID mit einer Zeichenlänge zwischen <red>4 und 16<gray>."
       maxWarpsReached: "<gray>Du hast die <red>maximale Anzahl an Spieler-Warps <gray>erreicht, die du erstellen kannst!"
     teleport:
       teleporting: "<gray>Teleportation wird gestartet ..."
       success: "<gray>Du wurdest zum Spieler-Warp <white>%warp% <gray>teleportiert!"
       notFound: "<gray>Der Spieler-Warp <white>%warp% <gray>konnte <red>nicht gefunden<gray> werden!"
       canceled: "<gray>Die Teleportation wurde aufgrund von Bewegung <red>abgebrochen<gray>!"
+
+# Dialog texts
+dialogs:
+  displayname:
+    title: "<yellow><b>Anzeigenamen ändern"
+    texts:
+      - "<white>Gib einen neuen Anzeigenamen für deinen Spieler-Warp ein:"
+    buttons:
+      confirm: "<green>Bestätigen"
+      cancel: "<red>Abbrechen"
+  delete:
+    title: "<red><b>Spieler-Warp löschen"
+    texts:
+      - "<white>Bist du sicher?"
+      - "<white>Diese Aktion <red><u>kann nicht rückgängig gemacht werden</u><white>."
+    buttons:
+      confirm: "<green>Bestätigen"
+      cancel: "<red>Abbrechen"
+  icon:
+    title: "<red><b>Icon ändern"
+    texts:
+      - "<white>Gib den Namen des Materials (auf Englisch) ein, welches du für dein Spieler-Warp verwenden möchtest (z.B. 'Oak Log'):"
+    buttons:
+      confirm: "<green>Bestätigen"
+      cancel: "<red>Abbrechen"
+  create:
+    title: "<green><b>Spieler-Warp erstellen"
+    texts:
+      - "<white>Gib den Identifier für deinen neuen Spieler-Warp ein:"
+      - "<gray>Hinweis: Der Identifier darf nur Buchstaben, Zahlen und Unterstriche enthalten und muss zwischen 4 und 16 Zeichen lang sein."
+    buttons:
+      confirm: "<green>Bestätigen"
+      cancel: "<red>Abbrechen"

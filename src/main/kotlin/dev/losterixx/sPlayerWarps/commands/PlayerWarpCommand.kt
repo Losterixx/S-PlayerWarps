@@ -4,7 +4,7 @@ import com.mojang.brigadier.arguments.StringArgumentType
 import com.mojang.brigadier.builder.LiteralArgumentBuilder
 import dev.losterixx.sapi.utils.config.ConfigManager
 import dev.losterixx.sPlayerWarps.Main
-import dev.losterixx.sPlayerWarps.other.GuiManager
+import dev.losterixx.sPlayerWarps.other.ui.GuiManager
 import dev.losterixx.sPlayerWarps.other.PWManager
 import dev.losterixx.sPlayerWarps.other.PlayerWarp
 import dev.triumphteam.gui.guis.Gui

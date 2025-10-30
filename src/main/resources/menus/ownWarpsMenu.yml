@@ -2,13 +2,13 @@
 # For more information, visit https://docs.adventure.kyori.net/minimessage.html
 
 # The title of the gui
-title: "<gray>       »»» <green><b>Mainmenu</b> <gray>«««"
+title: "<gray>     »»» <green><b>Your Warps</b> <gray>«««"
 
 # Number of rows of the gui (min. 1, max. 6)
 rows: 6
 
 # Automatically refresh the gui every x seconds (-1 to disable)
-autoRefresh: 3
+autoRefresh: -1
 
 # Extra settings for this gui
 extra:
@@ -21,16 +21,17 @@ extra:
       lore:
         - ""
         - "<dark_gray>Information:"
-        - "<dark_gray>┣ <gray>Owner: <white>%warp_owner%"
+        - "<dark_gray>┣ <gray>World: <white>%warp_world%"
+        - "<dark_gray>┣ <gray>Location: <white>%warp_location%"
         - "<dark_gray>┣ <gray>Uses: <white>%warp_uses%"
         - "<dark_gray>┗ <gray>Unique Uses: <white>%warp_unique_uses%"
         - ""
-        - "<dark_gray> 🢒 <gray>Click to teleport."
+        - "<dark_gray> 🢒 <gray>Click to edit."
 
 # Buttons in the gui
 buttons:
-  # The close button
-  closeButton:
+  # The back button
+  returnButton:
     # Should the button be enabled?
     enabled: true
     # The slot to place the item in
@@ -40,10 +41,10 @@ buttons:
       # The material of the item
       material: BARRIER
       # The name of the item
-      name: "<red><b>Close"
+      name: "<red><b>Return"
       # The lore of the item
       lore:
-        - "<dark_gray> 🢒 <gray>Click to close the menu."
+        - "<dark_gray> 🢒 <gray>Click to return to the main menu."
   # The next page button
   nextPage:
     enabled: true
@@ -62,15 +63,15 @@ buttons:
       name: "<green><b>Previous Page"
       lore:
         - "<dark_gray> 🢒 <gray>Click to go to the previous page."
-  # The button to open the player's own warps
-  ownWarps:
+  # The create warp button
+  createButton:
     enabled: true
     slot: 4
     item:
-      material: RECOVERY_COMPASS
-      name: "<aqua><b>Your Warps"
+      material: NETHER_STAR
+      name: "<green><b>Create New Warp"
       lore:
-        - "<dark_gray> 🢒 <gray>Click to view your own warps."
+        - "<dark_gray> 🢒 <gray>Click to create a new player warp."
 
 # Here you can add other items to the gui
 content:

@@ -23,16 +23,52 @@ commands:
       reloading: "<yellow>Reloading <gray>S-PlayerWarps..."
       success: "<green>Successfully reloaded <gray>S-PlayerWarps! <dark_gray>(%time%ms)"
       error: "<gray>An <red>error occurred <gray>while reloading S-PlayerWarps! Check the console for details."
+  # Messages for the /playerwarp command
   playerwarp:
     usage: "<gray>Please use <red>/playerwarp <create/teleport> <identifier><gray>!"
     create:
       success: "<gray>The player warp <white>%warp% <gray>has <green>successfully been created<gray>!"
-      alreadyExists: "<gray>A player warp with the name <white>%warp% <red>already exists<gray>!"
-      identifierRegex: "<gray>The warp name <white>%warp% <gray>contains <red>invalid characters<gray>! Please use only letters, numbers and underscores."
-      identifierLength: "<gray>The warp name <white>%warp% <gray>is <red>too long or too short<gray>! Please use a name between <red>4 and 16 <gray>characters long."
+      alreadyExists: "<gray>A player warp with the identifier <white>%warp% <red>already exists<gray>!"
+      identifierRegex: "<gray>The warp identifier <white>%warp% <gray>contains <red>invalid characters<gray>! Please use only letters, numbers and underscores."
+      identifierLength: "<gray>The warp identifier <white>%warp% <gray>is <red>too long or too short<gray>! Please use a identifier between <red>4 and 16 <gray>characters long."
       maxWarpsReached: "<gray>You have reached the <red>maximum amount of player warps <gray>you can create!"
     teleport:
       teleporting: "<gray>Teleportation starting ..."
       success: "<gray>You have been teleported to player warp <white>%warp%<gray>!"
       notFound: "<gray>The player warp <white>%warp% <gray>could <red>not be found<gray>!"
       canceled: "<gray>Teleportation <red>canceled<gray> due to movement!"
+
+# Dialog texts
+dialogs:
+  displayname:
+    title: "<yellow><b>Change Displayname"
+    texts:
+      - "<white>Enter a new displayname for your player warp:"
+    buttons:
+      confirm: "<green>Confirm"
+      cancel: "<red>Cancel"
+  delete:
+    title: "<red><b>Delete Player-Warp"
+    texts:
+      - "<white>Are you sure?"
+      - "<white>This action <red><u>cannot be undone</u><white>."
+    buttons:
+      confirm: "<green>Confirm"
+      cancel: "<red>Cancel"
+  icon:
+    title: "<red><b>Change Icon"
+    texts:
+      - "<white>Enter the name of the material you want to use for your player warp (e.g. 'Oak Log'):"
+    buttons:
+      confirm: "<green>Confirm"
+      cancel: "<red>Cancel"
+    messages:
+      invalidMaterial: "<gray>The material you entered <red>is invalid<gray>! Please enter a valid material name."
+  create:
+    title: "<green><b>Create Player-Warp"
+    texts:
+      - "<white>Enter a unique identifier for your new player warp:"
+      - "<gray>Note: The identifier may only contain letters, numbers and underscores and must be between 4 and 16 characters long."
+    buttons:
+      confirm: "<green>Confirm"
+      cancel: "<red>Cancel"
