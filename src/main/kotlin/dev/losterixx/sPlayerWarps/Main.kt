@@ -1,6 +1,7 @@
 package dev.losterixx.sPlayerWarps
 
 import dev.losterixx.sPlayerWarps.commands.PlayerWarpCommand
+import dev.losterixx.sPlayerWarps.listener.UpdateCheckerListener
 import dev.losterixx.sPlayerWarps.other.Cache
 import dev.losterixx.sapi.SAPI
 import dev.losterixx.sapi.premade.commands.DefaultMainCommand
@@ -9,6 +10,9 @@ import dev.losterixx.sapi.utils.config.ConfigManager
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
 import dev.losterixx.sPlayerWarps.other.PWManager
+import dev.losterixx.sapi.utils.scheduling.SchedulerUtil
+import dev.losterixx.sapi.utils.update.UpdateChecker
+import dev.losterixx.utils.bStats.Metrics
 
 class Main : JavaPlugin() {
 
@@ -51,6 +55,23 @@ class Main : JavaPlugin() {
         }
         server.pluginManager.registerEvents(PlayerWarpCommand, instance)
         server.pluginManager.registerEvents(Cache, instance)
+        server.pluginManager.registerEvents(UpdateCheckerListener(), instance)
+
+        //-> Metrics
+        val metrics = Metrics(this, 27788)
+
+        //-> Update Checker
+        if (ConfigManager.getConfig("config").getBoolean("updateChecker.consoleMessage")) {
+            SchedulerUtil.runAsync {
+                if (!isLatestVersion()) {
+                    logger.warning("You are not using the latest version of S-PlayerWarps! Please update to the latest version.")
+                    logger.warning("Latest version: ${UpdateChecker.getLatestGitHubRelease("Losterixx", "S-PlayerWarps")}")
+                    logger.warning("Your version: ${pluginMeta.version}")
+                } else {
+                    logger.info("You are using the latest version of S-PlayerWarps!")
+                }
+            }
+        }
 
         logger.info("Plugin has been initialized successfully!")
     }
@@ -71,5 +92,11 @@ class Main : JavaPlugin() {
         }
 
         logger.info("Plugin has been disabled!")
+    }
+
+    fun isLatestVersion(): Boolean {
+        val currentVersion = pluginMeta.version
+        val latestVersion = UpdateChecker.getLatestGitHubRelease("Losterixx", "S-PlayerWarps")
+        return latestVersion != null && latestVersion == currentVersion
     }
 }
