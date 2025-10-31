@@ -17,11 +17,11 @@ S-PlayerWarps is a simple Paper plugin that lets players create personal warps a
 - Paper server (1.21.8+)
 
 ## Documentation
-GitBook docu: [S-Projects\S-PlayerWarps](https://s-projects.gitbook.io/s-projects/s-playerwarps/home)
+GitBook docu: [Link](https://s-projects.gitbook.io/s-projects/s-playerwarps/home)
 
 ## Download
 - **GitHub Releases:** [Link](https://github.com/Losterixx/S-PlayerWarps/releases)
-- **Modrinth:** coming soon...
+- **Modrinth:** [Link](https://modrinth.com/plugin/s-playerwarps)
 
 ## Support
 My Discord-Server: [S-Projects](https://discord.gg/gnGsUAwp76)
