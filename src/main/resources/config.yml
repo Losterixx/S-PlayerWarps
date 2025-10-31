@@ -58,6 +58,8 @@ sounds:
 # Settings for player warps
 playerwarps:
   # The maximum amount of player warps a player can create
+  # Set to 0 to make permission based (max. 100) | Set to -1 for unlimited
+  # Permission: s-playerwarps.limit.<amount>
   maxWarpsPerPlayer: 5
   # The default icon for player warps (Material name)
   defaultWarpIcon: 'COMPASS'

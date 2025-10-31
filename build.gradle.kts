@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.losterxx"
-version = "0.5-dev"
+version = "1.0"
 
 repositories {
     mavenCentral()

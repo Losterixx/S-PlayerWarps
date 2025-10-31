@@ -1,5 +1,5 @@
 name: S-PlayerWarps
-version: '0.5-dev'
+version: '1.0'
 main: dev.losterixx.sPlayerWarps.Main
 api-version: '1.21'
 authors: [ Losterixx ]
@@ -29,3 +29,12 @@ permissions:
   s-playerwarps.command.playerwarp.menu:
     description: Allows opening the player warps menu.
     default: true
+  s-playerwarps.limit.1:
+    description: Allows creating 1 player warp.
+    default: false
+  s-playerwarps.limit.5:
+    description: Allows creating 5 player warp.
+    default: false
+  s-playerwarps.limit.10:
+    description: Allows creating 10 player warp.
+    default: false

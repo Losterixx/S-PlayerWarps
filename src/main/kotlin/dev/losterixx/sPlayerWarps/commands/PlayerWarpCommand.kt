@@ -62,7 +62,23 @@ object PlayerWarpCommand : Listener {
                     .executes { ctx ->
                         val sender = ctx.source.sender as Player
 
-                        if (PWManager.getPlayerWarpsByOwner(sender.uniqueId).size >= config.getInt("playerwarps.maxWarpsPerPlayer", 5)) {
+                        val configuredMax = config.getInt("playerwarps.maxWarpsPerPlayer", 5)
+                        val maxWarpsPerPlayer = if (configuredMax > 0) {
+                            configuredMax
+                        } else if (configuredMax < 0) {
+                            Int.MAX_VALUE
+                        } else {
+                            var permLimit = 0
+                            for (i in 100 downTo 1) {
+                                if (sender.hasPermission("s-playerwarps.limit.$i")) {
+                                    permLimit = i
+                                    break
+                                }
+                            }
+                            permLimit
+                        }
+
+                        if (PWManager.getPlayerWarpsByOwner(sender.uniqueId).size >= maxWarpsPerPlayer) {
                             sender.sendMessage(mm.deserialize(prefix + messages.getString("commands.playerwarp.create.maxWarpsReached")))
                             return@executes 1
                         }
@@ -256,4 +272,3 @@ object PlayerWarpCommand : Listener {
     }
 
 }
-
