@@ -6,11 +6,18 @@ S-PlayerWarps is a simple Paper plugin that lets players create personal warps a
 - Teleport with optional delay and cancel-on-move.
 - Customizable messages (english.yml & german.yml, you can add more).
 - Sound effects for teleportation events.
+- Cancel teleportation due to movement.
+- Configurable GUIs.
+- Customizable player warps (displayname, material).
+- Tracking visits and unique visits.
 - More features in development ...
 
 ## Requirements
 - Java 21 or higher
 - Paper server (1.21.8+)
+
+## Documentation
+GitBook docu: [S-Projects\S-PlayerWarps](https://s-projects.gitbook.io/s-projects/s-playerwarps/home)
 
 ## Download
 - **GitHub Releases:** [Link](https://github.com/Losterixx/S-PlayerWarps/releases)
